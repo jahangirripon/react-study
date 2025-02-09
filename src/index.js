@@ -104,14 +104,19 @@ function Pizza(props) {
   // console.log(props);
   // console.log(props.pizzaObj);
 
-  if (props.pizzaObj.soldOut) return null;
+  //   if (props.pizzaObj.soldOut) return null;
   return (
-    <li className="pizza">
+    <li className={`pizza ${props.pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img alt={props.pizzaObj.name} src={props.pizzaObj.photoName} />
       <div>
         <h3>{props.pizzaObj.name}</h3>
         <p>{props.pizzaObj.ingredients}</p>
-        <p>Price: {props.pizzaObj.price + 3}</p>
+        <p>
+          <b>
+            Price:{" "}
+            {props.pizzaObj.soldOut ? "SOLD OUT" : props.pizzaObj.price + 3}
+          </b>
+        </p>
       </div>
     </li>
   );
