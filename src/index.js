@@ -47,12 +47,35 @@ const pizzaData = [
   },
 ];
 
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA",
+  },
+  {
+    skill: "JS",
+    level: "beginner",
+    color: "#EFD81D",
+  },
+  {
+    skill: "Laravel",
+    level: "advanced",
+    color: "#2662EA",
+  },
+  {
+    skill: "React",
+    level: "intermediate",
+    color: "#EFD81D",
+  },
+];
+
 function App() {
   return (
     <div className="container">
       <Header />
-      <Menu />
-      {/* <ProfileCard /> */}
+      {/* <Menu /> */}
+      <ProfileCard />
 
       <Footer />
     </div>
@@ -65,6 +88,81 @@ function Header() {
     <header className="header">
       <h1>Welcome to React Pizza</h1>
     </header>
+  );
+}
+
+function ProfileCard() {
+  return (
+    <div className="card">
+      <Profile
+        devName="Jonas Schmedtmann"
+        devDesc="Full-stack web developer and teacher at Udemy. When not coding or preparing a course, I like to play board games, to cook (and eat), or to just enjoy the Portuguese sun at the beach."
+        devPhoto="pizzas/spinaci.jpg"
+      />
+    </div>
+  );
+}
+
+function Profile(props) {
+  return (
+    <div>
+      <img src={props.devPhoto} alt={props.devName} className="profile-img" />
+      <div className="card-content">
+        <h2>{props.devName}</h2>
+        <p className="description">{props.devDesc}</p>
+        <Skills></Skills>
+      </div>
+    </div>
+  );
+}
+
+function Skills(props) {
+  // const skills = {};
+  const skill = skills;
+  const numSkills = skills.length;
+  return (
+    <div className="tags">
+      {/*
+      <div className="tags">
+        // <span className="tag blue">HTML+CSS 💙</span>
+        // <span className="tag yellow">JavaScript 🤟</span>
+      </div> */}
+
+      {numSkills > 0 ? (
+        <>
+          <ul className="tags">
+            {skills.map((skill) => (
+              <Skill
+                skill={skill.skill}
+                color={skill.color}
+                level={skill.level}
+                key={skill.skill}
+              ></Skill>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>Nothing Found!</p>
+      )}
+    </div>
+  );
+}
+
+function Skill({ skill, level, color }) {
+  return (
+    <span
+      className="tag"
+      style={{ backgroundColor: color, padding: "5px", borderRadius: "3px" }}
+    >
+      {skill}
+      {level === "advanced"
+        ? "💪"
+        : level === "intermediate"
+        ? "🆗"
+        : level === "beginner"
+        ? "😐"
+        : "❓"}
+    </span>
   );
 }
 
