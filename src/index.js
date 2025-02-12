@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import Steps from "./Steps";
 
 const pizzaData = [
   {
@@ -73,11 +74,11 @@ const skills = [
 function App() {
   return (
     <div className="container">
-      <Header />
+      {/* <Header /> */}
       {/* <Menu /> */}
-      <ProfileCard />
-
-      <Footer />
+      {/* <ProfileCard /> */}
+      {/* <Footer /> */}
+      <Steps />
     </div>
   );
 }
