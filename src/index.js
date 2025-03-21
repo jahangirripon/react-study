@@ -79,8 +79,8 @@ function App() {
       {/* <Menu /> */}
       {/* <ProfileCard /> */}
       {/* <Footer /> */}
-      {/* <Steps /> */}
-      <IncDate />
+      <Steps />
+      {/* <IncDate /> */}
     </div>
   );
 }
