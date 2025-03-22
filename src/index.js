@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Steps from "./Steps";
 import IncDate from "./IncDate";
+import TipCalc from "./TipCalc";
 
 const pizzaData = [
   {
@@ -79,7 +80,8 @@ function App() {
       {/* <Menu /> */}
       {/* <ProfileCard /> */}
       {/* <Footer /> */}
-      <Steps />
+      {/* <Steps /> */}
+      <TipCalc />
       {/* <IncDate /> */}
     </div>
   );
